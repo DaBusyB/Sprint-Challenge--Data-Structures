@@ -12,7 +12,7 @@ class HashTable {
   resize() {
     this.limit *= 2;
     const oldStorage = this.storage;
-    this.storage = new LimitedArray(this.limit);
+    this.storage = new LinkedList(this.limit);
     oldStorage.each((bucket) => {
       if (!bucket) return;
       bucket.forEach((pair) => {

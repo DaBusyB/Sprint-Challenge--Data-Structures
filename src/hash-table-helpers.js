@@ -6,6 +6,25 @@ class LimitedArray {
     this.storage = [];
     this.limit = limit;
   }
+}
+
+class Node {
+  constructor(key, value) {
+     this.value = value;
+     this.key = key;
+     this.next = null;
+  }
+}
+
+class LinkedList {
+  constructor(node) {
+     this.storage = [];
+     this.head = new Node;
+     this.count = 0;
+     this.limit = limit;
+     node = new Node(key, value);
+  }
+}
 
   checkLimit(index) {
     if (typeof index !== 'number') throw new Error('The supplied index needs to be a number');
@@ -19,6 +38,7 @@ class LimitedArray {
       cb(this.storage[i], i);
     }
   }
+
   // Use this getter function to fetch elements from this class
   get(index) {
     this.checkLimit(index);
@@ -28,6 +48,7 @@ class LimitedArray {
   get length() {
     return this.storage.length;
   }
+
   // Use this setter function to add elements to this class
   set(index, value) {
     this.checkLimit(index);
@@ -51,5 +72,7 @@ const getIndexBelowMax = (str, max) => {
 
 module.exports = {
   LimitedArray,
+  Node,
+  LinkedList,
   getIndexBelowMax,
 };
